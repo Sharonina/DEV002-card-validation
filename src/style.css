@@ -1,0 +1,18 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --base-color: #060920;
+    --morado-dark: #495194;
+    --morado: #878ECD;
+    --lila: #B9BBDF;
+    --lila-light: #DDE7F2;
+    --aqua-light: #DFF4F3;
+
+
+}
+body{
+    background-color: var(--morado);
+}
