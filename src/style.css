@@ -10,6 +10,7 @@
     --lila: #B9BBDF;
     --lila-light: #e2d9f3;
     --aqua-light: #d3efee;
+    --morado-datacard: #696287;
     --font-base: 'Nunito', sans-serif;
 
 
@@ -24,7 +25,6 @@ header{
     height: 15%;
     width: 100%;
     display: flex;
-    position: absolute;
 }
 
 header nav{
@@ -32,19 +32,20 @@ header nav{
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
 }
 
 header nav .nav-logo{
-    height: 80%;
     display: flex;
     align-items: center;
-    width: 20%;
+    width: 15%;
+    box-sizing: border-box;
+    padding-left: 5%;
 }
 
 header nav .nav-logo img{
-    height: 80%;
-    padding-left: 45%;
+    height: auto;
+    max-width: 100%;
+    width: 150px;
 }
 
 header nav .nav-name-section{
@@ -52,8 +53,9 @@ header nav .nav-name-section{
     height: 80%;
     display: flex;
     align-items: flex-start;
-    width: 80%;
+    width: 85%;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 header nav .nav-name-section p{
@@ -62,7 +64,7 @@ header nav .nav-name-section p{
     height: 50%;
     display: flex;
     align-items: flex-end;
-
+    letter-spacing: 3px;
 }
 
 header nav .nav-name-section .linea{
@@ -70,4 +72,146 @@ header nav .nav-name-section .linea{
     width: 100%;
     border-top: 2px solid var(--morado);
     margin-top: .5%;
+}
+
+main{
+    height: 85%;
+    width: 100%;
+}
+
+main .main-data{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+main .main-data p{
+    color: var(--aqua-light);
+    font-size: 24px;
+    font-family: var(--font-base);
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+main .main-data .data-card{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+main .main-data .data-card .card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+main .main-data .data-card .card img{
+    border-radius: 25px;
+    width: 35%;
+}
+
+main .main-data .data-card .numbers{
+    position: absolute;
+    bottom: 32%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+main .main-data .data-card .numbers input{
+    background: none;
+    width: 8%;
+    font-size: 36px;
+    color: var(--morado-datacard);
+    text-align: left;
+    letter-spacing: 10px;
+    text-indent: 16%;
+    border: none;
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+main .main-data .data-card .numbers input:hover{
+    border-bottom: 1px solid var(--morado-datacard);
+}
+
+main .main-data .data-card .user-name{
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    left: 34%;
+}
+
+main .main-data .data-card .user-name input{
+    background: none;
+    width: 32%;
+    font-size: 32px;
+    color: var(--morado-datacard);
+    text-align: left;
+    letter-spacing: 1px;
+    text-indent: 4%;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+}
+
+main .main-data .data-card .user-name input:hover{
+    border-bottom: 1px solid var(--morado-datacard);
+}
+
+main .main-data .digits-state{
+    display: flex;
+    width: 100%;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+}
+
+main .main-data .digits-state p{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    align-items: center;
+    margin: 0;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--lila);
+    cursor: pointer;
+}
+
+main .main-data .digits-state p:hover{
+    color: var(--morado);
+}
+
+main .main-data .validate-card{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+
+main .main-data .validate-card button{
+    width: 20%;
+    height: 85%;
+    border-radius: 25px;
+    background-color: var(--morado);
+    color: #F2f2f2;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+main .main-data .validate-card button:hover{
+    background-color: var(--morado-dark);
 }

@@ -18,16 +18,27 @@
       </nav>
     </header>
     <main>
-      <section>
+      <section class="main-data">
         <p>Ingresa los datos de tu tarjeta</p>
-        <div>
-          <img src="../imgs/card-sindatos.png" alt="card">
+        <div class="data-card">
+          <div class="card">
+            <img src="../imgs/card-sindatos.png" alt="card">
+          </div>
+          <div class="numbers">
+            <input class="cardInput" type="number" size="4" maxlength="4" placeholder="0000">
+            <input class="cardInput" type="number" size="4" maxlength="4" placeholder="0000">
+            <input class="cardInput" type="number" size="4" maxlength="4"  placeholder="0000">
+            <input class="cardInput" type="number" size="4" maxlength="4" placeholder="0000">
+          </div>
+          <div class="user-name">
+            <input type="text" placeholder="Your name here">
+          </div>
         </div>
-        <div>
-          <input class="cardInput" type="number" size="4" maxlength="4" placeholder="0000">
-          <input class="cardInput" type="number" size="4" maxlength="4" placeholder="0000">
-          <input class="cardInput" type="number" size="4" maxlength="4"  placeholder="0000">
-          <input class="cardInput" type="number" size="4" maxlength="4" placeholder="0000">
+        <div class="digits-state">
+          <p>Ocultar dígitos</p>
+        </div>
+        <div class="validate-card">
+          <button>Validar</button>
         </div>
       </section>
     </main>
