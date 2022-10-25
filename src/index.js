@@ -34,6 +34,7 @@ hideNumbersButton.onclick = () => {
 }
 
 //Validación de tarjeta
+//convertir node list a array de num
 const validateCard = document.querySelector(".validate-card-button");
 
 validateCard.onclick = () => {
@@ -46,10 +47,29 @@ validateCard.onclick = () => {
     let newCardNumbers = [...cardNumbers[0], ...cardNumbers[1], ...cardNumbers[2], ...cardNumbers[3]];
     const realCardNumbers = newCardNumbers.map(item => parseInt(item))
 
-    console.log(cardInputNumbers)
-    console.log(cardNumbers)
-    console.log(newCardNumbers)
-    console.log(realCardNumbers)
+//operaciones
+    const validation = realCardNumbers.map((item, index) => {
+        if((index + 1) % 2 === 0){
+            let numberDouble = item * 2
+            if(numberDouble > 9){
+                const numberDobleString = numberDouble.toString()
+                const numberDoubleSum = parseInt(numberDobleString.charAt(0)) + parseInt(numberDobleString.charAt(1))
+                return numberDoubleSum
+            } else{
+                return numberDouble
+            }
+        } else{
+            return item
+        }
+    })
+
+    const validationSum = validation.reduce((previo, actual) => previo + actual)
+
+    console.log(validationSum)
+    //Condicional de validación
+    if(validationSum % 10 === 0){
+        console.log('true')
+    } else{
+        console.log('false')
+    }
 }
-
-

@@ -146,13 +146,13 @@ main .main-data .data-card .numbers input:hover{
 main .main-data .data-card .user-name{
     position: absolute;
     bottom: 10%;
-    width: 100%;
+    width: 32%;
     left: 34%;
 }
 
 main .main-data .data-card .user-name input{
     background: none;
-    width: 32%;
+    width: 100%;
     font-size: 22px;
     color: var(--morado-datacard);
     text-align: left;
@@ -221,3 +221,82 @@ main .main-data .validate-card button:hover{
 main .main-data .numbers .hideNumbers{
     opacity: 0%;
 }
+
+main .validation-message{
+    height: 20%;
+    background-color: var(--morado-dark);
+    display: flex;
+    width: 100%;
+}
+
+main .validation-message .validation-message-left{
+    height: 100%;
+    width: 55%;
+    margin-left: 10%;
+    display: flex;
+}
+
+main .validation-message .validation-message-left .icon{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .validation-message .validation-message-left .icon img{
+    width: 60%;
+}
+
+main .validation-message .validation-message-left .message{
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
+}
+
+main .validation-message .validation-message-left .message span{
+    font-family: var(--font-base);
+    color: var(--aqua-light);
+    font-size: 40px;
+}
+
+main .validation-message .validation-message-right{
+    width: 30%;
+    margin-right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .validation-message .validation-message-right .option-buttons{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+main .validation-message .validation-message-right .option-buttons .validate-new-card{
+    background-color: #878ecd;
+    width: 50%;
+    height: 35%;
+    font-family: var(--font-base);
+    color: #f2f2f2;
+    border-radius: 50px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+main .validation-message .validation-message-right .option-buttons .exit{
+    font-size: 20px;
+    font-family: var(--font-base);
+    color: #f2f2f2;
+    cursor: pointer;
+    margin-top: 2%;
+}
+
