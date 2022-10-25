@@ -32,3 +32,24 @@ hideNumbersButton.onclick = () => {
         hideNumbersButton.innerHTML = "Ocultar dígitos"
     }
 }
+
+//Validación de tarjeta
+const validateCard = document.querySelector(".validate-card-button");
+
+validateCard.onclick = () => {
+    const cardInputNumbers = [];
+
+    let inputsValue = [...inputs]
+    inputsValue.forEach(item => cardInputNumbers.push(item.value))
+
+    const cardNumbers = cardInputNumbers.map(item => item.split(''))
+    let newCardNumbers = [...cardNumbers[0], ...cardNumbers[1], ...cardNumbers[2], ...cardNumbers[3]];
+    const realCardNumbers = newCardNumbers.map(item => parseInt(item))
+
+    console.log(cardInputNumbers)
+    console.log(cardNumbers)
+    console.log(newCardNumbers)
+    console.log(realCardNumbers)
+}
+
+
