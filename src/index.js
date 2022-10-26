@@ -43,12 +43,20 @@ hideNumbersButton.onclick = () => {
 //convertir node list a array de num
 const validateCard = document.querySelector(".validate-card-button");
 const userNameInput = document.querySelector(".user-name-input")
+const card = document.querySelector(".data-card")
+const cardImage = document.querySelector(".card-image")
+const userNameSpan = document.querySelector(".user-name-span")
 
 validateCard.onclick = () => {
 
     if(userNameInput.value.length == 0){
-        userNameInput.placeholder = "Por favor, ingresa tu nombre"
+        card.classList.add("mistake-shake");
+        cardImage.classList.add("mistake-shake-color");
+        userNameSpan.classList.remove("display-off");
     } else {
+        cardImage.classList.remove("mistake-shake-color");
+        userNameSpan.classList.add("display-off");
+
         const cardInputNumbers = [];
 
         let inputsValue = [...inputs]
