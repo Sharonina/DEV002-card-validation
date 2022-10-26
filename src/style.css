@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+::placeholder{
+    color: #7e7b8d;
+}
+
 :root{
     --base-color: #060920;
     --morado-dark: #495194;
@@ -10,7 +14,7 @@
     --lila: #B9BBDF;
     --lila-light: #e2d9f3;
     --aqua-light: #d3efee;
-    --morado-datacard: #585078;
+    --morado-datacard: #5a5474;
     --font-base: 'Nunito', sans-serif;
 
 
