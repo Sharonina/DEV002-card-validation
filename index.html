@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shank: Validación</title>
+    <link rel="icon" href="./imgs/s-sharon.png">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-logo">
+          <img src="../imgs/s-sharon.png" alt="logo" >
+        </div>
+        <div class="nav-name-section">
+          <p>VALIDACIÓN DE TARJETA</p>
+          <div class="linea"></div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="main-data">
+        <p>Ingresa los datos de tu tarjeta</p>
+        <div class="data-card">
+          <div class="card">
+            <img src="../imgs/card-sindatos.png" alt="card">
+          </div>
+          <div class="numbers">
+            <input class="cardInput" type="number" size="4" maxlength="4" placeholder="0000">
+            <input class="cardInput" type="number" size="4" maxlength="4" placeholder="0000">
+            <input class="cardInput" type="number" size="4" maxlength="4"  placeholder="0000">
+            <input class="cardInput" type="number" size="4" maxlength="4" placeholder="0000">
+          </div>
+          <div class="user-name">
+            <input type="text" placeholder="Your name here">
+          </div>
+        </div>
+        <div class="digits-state">
+          <button class="hideNumbersButton">Ocultar dígitos</button>
+        </div>
+        <div class="validate-card">
+          <button class="validate-card-button">Validar</button>
+        </div>
+      </section>
+      <section class="validation-message display-off">
+        <div class="validation-message-left">
+          <div class="icon">
+            <img src="./imgs/check-mark.png" alt="check icon">
+          </div>
+          <div class="message">
+            <span>¡Felicidades! Tu tarjeta es valida</span>
+          </div>
+        </div>
+        <div class="validation-message-right">
+          <div class="option-buttons">
+            <buton class="validate-new-card">Validar otra tarjeta</buton>
+            <buton class="exit">
+              <a href="./404.html">Salir</a>
+            </buton>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="index.js" type="module"></script>
+  </body>
+</html>
