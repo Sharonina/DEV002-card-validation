@@ -2,14 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Tarjeta de crédito válida</title>
+    <title>Shank: Validación</title>
+    <link rel="icon" href="./imgs/s-sharon.png">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
       <nav>
         <div class="nav-logo">
-          <img src="../imgs/s-sharon.png" alt="logo" >
+          <img src="imgs/s-sharon.png" alt="logo" >
         </div>
         <div class="nav-name-section">
           <p>VALIDACIÓN DE TARJETA</p>
@@ -22,7 +23,7 @@
         <p>Ingresa los datos de tu tarjeta</p>
         <div class="data-card">
           <div class="card">
-            <img src="../imgs/card-sindatos.png" alt="card">
+            <img src="imgs/card-sindatos.png" alt="card">
           </div>
           <div class="numbers">
             <input class="cardInput" type="number" size="4" maxlength="4" placeholder="0000">
@@ -41,19 +42,21 @@
           <button class="validate-card-button">Validar</button>
         </div>
       </section>
-      <section class="validation-message">
+      <section class="validation-message display-off">
         <div class="validation-message-left">
           <div class="icon">
-            <img src="./imgs/check-mark.png" alt="check icon">
+            <img class="icon-img" src="imgs/check-mark.png" alt="check icon">
           </div>
           <div class="message">
-            <span>¡Felicidades! Tu tarjeta es valida</span>
+            <span class="message-span">¡Felicidades! Tu tarjeta es valida</span>
           </div>
         </div>
         <div class="validation-message-right">
           <div class="option-buttons">
             <buton class="validate-new-card">Validar otra tarjeta</buton>
-            <buton class="exit">Salir</buton>
+            <buton class="exit">
+              <a href="./404.html">Salir</a>
+            </buton>
           </div>
         </div>
       </section>

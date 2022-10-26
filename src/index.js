@@ -62,14 +62,31 @@ validateCard.onclick = () => {
             return item
         }
     })
-
+//Sumatoria
     const validationSum = validation.reduce((previo, actual) => previo + actual)
-
     console.log(validationSum)
-    //Condicional de validación
+
+//condicionales para el mensaje de validacion
+    const validationMessage = document.querySelector(".validation-message");
+    const messageSpan = document.querySelector(".message-span");
+    const iconImg = document.querySelector(".icon-img");
+
     if(validationSum % 10 === 0){
+        validationMessage.classList.remove("display-off");
+        validateCard.classList.add("display-off")
         console.log('true')
     } else{
+        validationMessage.classList.remove("display-off");
+        messageSpan.innerHTML = "¡Lo sentimos! Tu tarjeta es invalida"
+        validateCard.classList.add("display-off")
+        iconImg.src = "imgs/x-mark.png"
         console.log('false')
     }
+}
+
+//Validar nueva tarjeta
+const validateNewCard = document.querySelector(".validate-new-card");
+
+validateNewCard.onclick = () => {
+    window.location.reload()
 }
