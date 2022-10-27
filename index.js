@@ -19,15 +19,21 @@ const hideNumbersButton = document.querySelector(".hideNumbersButton");
 
 hideNumbersButton.onclick = () => {
     if(hideNumbersButton.innerHTML === 'Ocultar dígitos'){
-        inputs[0].classList.add("hideNumbers");
+        /* inputs[0].classList.add("hideNumbers");
         inputs[1].classList.add("hideNumbers");
-        inputs[2].classList.add("hideNumbers");
+        inputs[2].classList.add("hideNumbers"); */
+        inputs[0].type = "password"
+        inputs[1].type = "password"
+        inputs[2].type = "password"
 
         hideNumbersButton.innerHTML = "Mostrar dígitos"
     }else{
-        inputs[0].classList.remove("hideNumbers");
+        /* inputs[0].classList.remove("hideNumbers");
         inputs[1].classList.remove("hideNumbers");
-        inputs[2].classList.remove("hideNumbers");
+        inputs[2].classList.remove("hideNumbers"); */
+        inputs[0].type = "number"
+        inputs[1].type = "number"
+        inputs[2].type = "number"
 
         hideNumbersButton.innerHTML = "Ocultar dígitos"
     }
@@ -36,44 +42,86 @@ hideNumbersButton.onclick = () => {
 //Validación de tarjeta
 //convertir node list a array de num
 const validateCard = document.querySelector(".validate-card-button");
+const userNameInput = document.querySelector(".user-name-input")
+const card = document.querySelector(".data-card")
+const cardImage = document.querySelector(".card-image")
+const userNameSpan = document.querySelector(".user-name-span")
+const cardNumbersSpan = document.querySelector(".card-numbers-span")
 
 validateCard.onclick = () => {
-    const cardInputNumbers = [];
 
-    let inputsValue = [...inputs]
-    inputsValue.forEach(item => cardInputNumbers.push(item.value))
+    const errors = {}
+    cardImage.classList.remove("mistake-shake-color");
+    cardNumbersSpan.classList.add("display-off");
+    userNameSpan.classList.add("display-off");
 
-    const cardNumbers = cardInputNumbers.map(item => item.split(''))
-    let newCardNumbers = [...cardNumbers[0], ...cardNumbers[1], ...cardNumbers[2], ...cardNumbers[3]];
-    const realCardNumbers = newCardNumbers.map(item => parseInt(item))
+    if(inputs[0].value.length == 0 || inputs[1].value.length == 0 || inputs[2].value.length == 0 || inputs[3].value.length == 0 ){
+        errors.cardNumbers = true
+        errors.name = true
+        card.classList.add("mistake-shake");
+        cardImage.classList.add("mistake-shake-color");
+        cardNumbersSpan.classList.remove("display-off");
+        setTimeout(() => card.classList.remove("mistake-shake"), 1000)
+    }
+    if(userNameInput.value.length == 0){
+        errors.name = true
+        card.classList.add("mistake-shake");
+        cardImage.classList.add("mistake-shake-color");
+        userNameSpan.classList.remove("display-off");
+        setTimeout(() => card.classList.remove("mistake-shake"), 1000)
+    }
 
-//operaciones
-    const validation = realCardNumbers.map((item, index) => {
-        if((index + 1) % 2 === 0){
-            let numberDouble = item * 2
-            if(numberDouble > 9){
-                const numberDobleString = numberDouble.toString()
-                const numberDoubleSum = parseInt(numberDobleString.charAt(0)) + parseInt(numberDobleString.charAt(1))
-                return numberDoubleSum
+    if(!errors.cardNumbers && !errors.name){
+        const cardInputNumbers = [];
+
+        let inputsValue = [...inputs]
+        inputsValue.forEach(item => cardInputNumbers.push(item.value))
+
+        const cardNumbers = cardInputNumbers.map(item => item.split(''))
+        let newCardNumbers = [...cardNumbers[0], ...cardNumbers[1], ...cardNumbers[2], ...cardNumbers[3]];
+        const realCardNumbers = newCardNumbers.map(item => parseInt(item))
+
+    //operaciones
+        const validation = realCardNumbers.map((item, index) => {
+            if((index + 1) % 2 === 0){
+                let numberDouble = item * 2
+                if(numberDouble > 9){
+                    const numberDobleString = numberDouble.toString()
+                    const numberDoubleSum = parseInt(numberDobleString.charAt(0)) + parseInt(numberDobleString.charAt(1))
+                    return numberDoubleSum
+                } else{
+                    return numberDouble
+                }
             } else{
-                return numberDouble
+                return item
             }
+        })
+    //Sumatoria
+        const validationSum = validation.reduce((previo, actual) => previo + actual)
+        console.log(validationSum)
+
+    //condicionales para el mensaje de validacion
+        const validationMessage = document.querySelector(".validation-message");
+        const messageSpan = document.querySelector(".message-span");
+        const iconImg = document.querySelector(".icon-img");
+
+        if(validationSum % 10 === 0){
+            validationMessage.classList.remove("display-off");
+            validateCard.classList.add("display-off")
+            console.log('true')
         } else{
-            return item
+            validationMessage.classList.remove("display-off");
+            messageSpan.innerHTML = "¡Lo sentimos! Tu tarjeta es invalida"
+            validateCard.classList.add("display-off")
+            iconImg.src = "imgs/x-mark.png"
+            console.log('false')
         }
-    })
-
-    const validationSum = validation.reduce((previo, actual) => previo + actual)
-
-    const validationMessageRight = document.querySelectorAll(".validation-message");
-
-    console.log(validationSum)
-    //Condicional de validación
-    if(validationSum % 10 === 0){
-        validationMessageRight.classList.remove("display-off");
-        console.log('true')
-    } else{
-        console.log('false')
     }
 }
 
+//Validar nueva tarjeta
+const validateNewCard = document.querySelector(".validate-new-card");
+
+validateNewCard.onclick = () => {
+    window.location.reload()
+}
