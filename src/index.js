@@ -46,17 +46,32 @@ const userNameInput = document.querySelector(".user-name-input")
 const card = document.querySelector(".data-card")
 const cardImage = document.querySelector(".card-image")
 const userNameSpan = document.querySelector(".user-name-span")
+const cardNumbersSpan = document.querySelector(".card-numbers-span")
 
 validateCard.onclick = () => {
 
+    const errors = {}
+    cardImage.classList.remove("mistake-shake-color");
+    cardNumbersSpan.classList.add("display-off");
+    userNameSpan.classList.add("display-off");
+
+    if(inputs[0].value.length == 0 || inputs[1].value.length == 0 || inputs[2].value.length == 0 || inputs[3].value.length == 0 ){
+        errors.cardNumbers = true
+        errors.name = true
+        card.classList.add("mistake-shake");
+        cardImage.classList.add("mistake-shake-color");
+        cardNumbersSpan.classList.remove("display-off");
+        setTimeout(() => card.classList.remove("mistake-shake"), 1000)
+    }
     if(userNameInput.value.length == 0){
+        errors.name = true
         card.classList.add("mistake-shake");
         cardImage.classList.add("mistake-shake-color");
         userNameSpan.classList.remove("display-off");
-    } else {
-        cardImage.classList.remove("mistake-shake-color");
-        userNameSpan.classList.add("display-off");
+        setTimeout(() => card.classList.remove("mistake-shake"), 1000)
+    }
 
+    if(!errors.cardNumbers && !errors.name){
         const cardInputNumbers = [];
 
         let inputsValue = [...inputs]

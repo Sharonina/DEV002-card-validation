@@ -138,6 +138,7 @@ main .main-data .data-card .card img:hover{
 
 .mistake-shake{
     animation: shake 1s;
+    animation-iteration-count: infinite;
 }
 
 .mistake-shake-color{
@@ -173,6 +174,17 @@ input::-webkit-inner-spin-button {
 
 main .main-data .data-card .numbers input:hover{
     border-bottom: 1px solid var(--morado-datacard);
+}
+
+main .main-data .data-card .card-numbers-span{
+    color: rgb(184 36 92);
+    font-family: var(--font-base);
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 4%;
+    position: absolute;
+    bottom: 23%;
+    left: 31.5%;
 }
 
 main .main-data .data-card .user-name{
@@ -355,4 +367,33 @@ main .validation-message .validation-message-right .option-buttons .exit a:hover
 
 .display-off{
     visibility: hidden;
+}
+
+/* 404 styles */
+.main-img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-img img{
+    border-radius: 25px;
+    width: 50%;
+}
+
+.main-message{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-base);
+    margin-top: 4%;
+}
+
+.main-message h1{
+    color: #f2f2f2;
+}
+
+.main-message h2{
+    color: var(--lila-light);
 }
