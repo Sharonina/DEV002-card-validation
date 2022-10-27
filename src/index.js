@@ -1,3 +1,4 @@
+import validator from '/validator.js'
 //Validación de numero de caracteres, salto al siguiente input
 const inputs = document.querySelectorAll(".cardInput");
 
@@ -49,7 +50,7 @@ const userNameSpan = document.querySelector(".user-name-span")
 const cardNumbersSpan = document.querySelector(".card-numbers-span")
 
 validateCard.onclick = () => {
-
+    console.log('hello')
     const errors = {}
     cardImage.classList.remove("mistake-shake-color");
     cardNumbersSpan.classList.add("display-off");
@@ -82,30 +83,14 @@ validateCard.onclick = () => {
         const realCardNumbers = newCardNumbers.map(item => parseInt(item))
 
     //operaciones
-        const validation = realCardNumbers.map((item, index) => {
-            if((index + 1) % 2 === 0){
-                let numberDouble = item * 2
-                if(numberDouble > 9){
-                    const numberDobleString = numberDouble.toString()
-                    const numberDoubleSum = parseInt(numberDobleString.charAt(0)) + parseInt(numberDobleString.charAt(1))
-                    return numberDoubleSum
-                } else{
-                    return numberDouble
-                }
-            } else{
-                return item
-            }
-        })
-    //Sumatoria
-        const validationSum = validation.reduce((previo, actual) => previo + actual)
-        console.log(validationSum)
+        const isCardValid = validator.isValid(realCardNumbers)
 
     //condicionales para el mensaje de validacion
         const validationMessage = document.querySelector(".validation-message");
         const messageSpan = document.querySelector(".message-span");
         const iconImg = document.querySelector(".icon-img");
 
-        if(validationSum % 10 === 0){
+        if(isCardValid){
             validationMessage.classList.remove("display-off");
             validateCard.classList.add("display-off")
             console.log('true')
