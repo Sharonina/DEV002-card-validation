@@ -397,3 +397,7 @@ main .validation-message .validation-message-right .option-buttons .exit a:hover
 .main-message h2{
     color: var(--lila-light);
 }
+
+.main-message h3{
+    color: var(--morado);
+}
