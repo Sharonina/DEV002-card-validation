@@ -1,4 +1,4 @@
-import validator from '/validator.js'
+import validator from 'validator.js'
 //Validación de numero de caracteres, salto al siguiente input
 const inputs = document.querySelectorAll(".cardInput");
 
